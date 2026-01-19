@@ -1,96 +1,134 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
   <meta charset="UTF-8">
-  <title>Lunch Aí - Home</title>
+  <title>Lunch Aí - Dashboard Desktop</title>
   <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body class="home-body">
-  
 
-  <aside class="menu-lateral">
-    <h1>Lunch aí</h1>
-  </aside>
+  <div class="desktop-container">
+    <aside class="sidebar">
+      <div class="logo-box"><h1>Lunch Aí</h1></div>
+      <nav class="side-nav">
+        <button class="nav-btn active" onclick="abrirTela('home', this)"><i class="fas fa-home"></i> Início</button>
+        <button class="nav-btn" onclick="abrirTela('retirada', this)"><i class="fas fa-store"></i> Retirada</button>
+        <button class="nav-btn" onclick="abrirTela('assinatura', this)"><i class="fas fa-crown"></i> Assinatura VIP</button>
+        <button class="nav-btn" onclick="abrirTela('notificacoes', this)"><i class="fas fa-comment-alt"></i> Notificações</button>
+      </nav>
 
-  <main class="conteudo">
-
-    <div class="tabs">
-      <span class="ativo">entrega</span>
-      <span>retirada</span>
-    </div>
-
-    <section class="categorias">
-      <div>
-        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999">
-        <p>verduras</p>
+      <div class="user-profile-side">
+        <div class="avatar-neutral"><i class="fas fa-user"></i></div>
+        <div class="user-txt">
+          <strong id="nomeUsuario">Lucas Oliveira</strong>
+          <span>Cliente Gold</span>
+        </div>
       </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
-        <p>lanches</p>
+    </aside>
+
+    <main class="main-content">
+      <section class="info-card-dark">
+        
+        <div id="view-home" class="view">
+          <h2 class="welcome-msg">O que vamos pedir hoje?</h2>
+          <div class="categories-grid">
+            <div class="cat-item" onclick="window.location.href='produtos.html'">
+              <div class="cat-icon-white"><i class="fas fa-drumstick-bite"></i></div>
+              <p>Carnes</p>
+            </div>
+            <div class="cat-item"><div class="cat-icon-white"><i class="fas fa-dumbbell"></i></div><p>Academia</p></div>
+            <div class="cat-item"><div class="cat-icon-white"><i class="fas fa-shopping-basket"></i></div><p>Mercado</p></div>
+            <div class="cat-item"><div class="cat-icon-white"><i class="fas fa-carrot"></i></div><p>Hortifruti</p></div>
+            <div class="cat-item"><div class="cat-icon-white"><i class="fas fa-pills"></i></div><p>Farmácia</p></div>
+            <div class="cat-item"><div class="cat-icon-white"><i class="fas fa-wine-bottle"></i></div><p>Bebidas</p></div>
+          </div>
+
+          <h3 class="section-subtitle">Nutricionistas Online</h3>
+          <div class="nutri-list">
+            <div class="nutri-card">
+              <img src="https://images.pexels.com/photos/4167541/pexels-photo-4167541.jpeg?auto=compress&cs=tinysrgb&w=150">
+              <div class="nutri-info"><strong>Dra. Ana Paula</strong><p>Nutrição Esportiva</p></div>
+              <button class="btn-wa"><i class="fab fa-whatsapp"></i></button>
+            </div>
+            <div class="nutri-card">
+              <img src="https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=150">
+              <div class="nutri-info"><strong>Dra. Julia Mello</strong><p>Emagrecimento</p></div>
+              <button class="btn-wa"><i class="fab fa-whatsapp"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div id="view-retirada" class="view oculto">
+          <div class="aviso-retirada-desk">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>No momento não há pontos de retirada disponíveis para sua região.</p>
+          </div>
+        </div>
+
+        <div id="view-assinatura" class="view oculto">
+            <h2 class="welcome-msg">Planos Lunch Aí VIP</h2>
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <span class="plan-tag">MENSAL</span>
+                    <h3>Premium Gold</h3>
+                    <p>Entrega grátis + 10% OFF em carnes</p>
+                    <div class="price">R$ 29,90<span>/mês</span></div>
+                    <button class="btn-plan">Assinar Agora</button>
+                </div>
+                <div class="plan-card featured">
+                    <span class="plan-tag">ANUAL</span>
+                    <h3>VIP Platinum</h3>
+                    <p>Todos os benefícios + Brinde Mensal</p>
+                    <div class="price">R$ 19,90<span>/mês</span></div>
+                    <button class="btn-plan">Assinar Agora</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-notificacoes" class="view oculto">
+            <h2 class="welcome-msg">Mensagens</h2>
+            <div class="notif-item">
+                <div class="notif-dot blue"></div>
+                <div class="notif-content">
+                    <strong>Pedido Confirmado!</strong>
+                    <p>Sua Picanha Premium já está na grelha. Previsão de entrega: 25 min.</p>
+                </div>
+            </div>
+            <div class="notif-item">
+                <div class="notif-dot yellow"></div>
+                <div class="notif-content">
+                    <strong>Cupom Especial</strong>
+                    <p>Use o cupom <b>VOLTEI20</b> e ganhe R$ 20,00 na sua próxima compra de mercado.</p>
+                </div>
+            </div>
+        </div>
+
+      </section>
+
+      <h3 class="label-promo">Ofertas em Destaque</h3>
+      <div class="promo-grid">
+        <div class="promo-white">
+          <div class="promo-txt">
+            <span class="discount">10% OFF</span>
+            <h4>Parceria Academia</h4>
+            <p>Válido para marmitas proteicas selecionadas.</p>
+          </div>
+          <button class="resgatar-btn" onclick="resgatar(this)">Resgatar</button>
+        </div>
+        <div class="promo-white">
+          <div class="promo-txt">
+            <span class="discount">GRÁTIS</span>
+            <h4>Taxa de Entrega</h4>
+            <p>Na sua primeira compra em Hortifruti.</p>
+          </div>
+          <button class="resgatar-btn" onclick="window.location.href='produtos.html'">Aproveitar</button>
+        </div>
       </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1587131782738-de40a1fd71b0">
-        <p>doces</p>
-      </div>
-      <div onclick="window.location.href='produtos.html'">
-  <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141">
-  <p>carnes</p>
-</div>
-
-    </section>
-
-    <section class="cupons">
-      <div class="cupom vermelho">R$ 20 OFF</div>
-      <div class="cupom rosa">R$ 10 OFF</div>
-    </section>
-
-    <div class="aviso-retirada">
-  <p> No momento não há pontos de retirada disponíveis.</p>
-</div>
-
-
-    <h3>últimos pedidos</h3>
-
-  <section class="promocoes">
-
-  <!-- PROMO 20% OFF -->
-  <div class="promo-elite promo-20">
-    <div class="promo-info">
-      <span class="badge">exclusivo</span>
-      <h2>20% OFF</h2>
-      <p>Lanches artesanais<br>por tempo limitado</p>
-      <button>aproveitar agora</button>
-    </div>
-
-    <div class="promo-img">
-      <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
-    </div>
+    </main>
   </div>
 
-  <!-- PROMO 10% OFF -->
-  <div class="promo-elite promo-10">
-    <div class="promo-info">
-      <span class="badge light">doce momento</span>
-      <h2>10% OFF</h2>
-      <p>Sobremesas que<br>valem a pausa</p>
-      <button>ver ofertas</button>
-    </div>
-
-    <div class="promo-img">
-      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
-    </div>
-  </div>
-
-</section>
-
-
-  </main>
-
-<script src="home.js"></script>
-
+  <script src="home.js"></script>
 </body>
 </html>
